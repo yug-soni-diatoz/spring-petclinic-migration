@@ -23,6 +23,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.inject.Inject;
 import javax.validation.Valid;
 import java.util.Collection;
 
@@ -36,12 +37,18 @@ import java.util.Collection;
 class PetController {
 
     private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
-    private final PetRepository pets;
-    private final OwnerRepository owners;
 
     @Autowired
-    public PetController(PetRepository pets, OwnerRepository owners) {
+    private PetRepository pets;
+
+    @Inject
+    private OwnerRepository owners;
+
+    public void setPets(PetRepository pets) {
         this.pets = pets;
+    }
+
+    public void setOwners(OwnerRepository owners) {
         this.owners = owners;
     }
 

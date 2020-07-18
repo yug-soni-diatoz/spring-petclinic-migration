@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -51,6 +52,14 @@ public class PetControllerTests {
         given(this.owners.findById(TEST_OWNER_ID)).willReturn(new Owner());
         given(this.pets.findById(TEST_PET_ID)).willReturn(new Pet());
 
+    }
+
+    @Test
+    public void constructPetControllerManually() {
+        PetController controller = new PetController();
+        OwnerRepository ownerRepository = mock(OwnerRepository.class);
+        controller.setOwners(ownerRepository);
+        controller.setPets(mock(PetRepository.class));
     }
 
     @Test

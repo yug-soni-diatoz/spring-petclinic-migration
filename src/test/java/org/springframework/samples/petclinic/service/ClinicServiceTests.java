@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 import java.util.Date;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
 
 /**
  * Integration test of the Service and the Repository layer.
@@ -57,19 +57,19 @@ public class ClinicServiceTests {
     @Test
     public void shouldFindOwnersByLastName() {
         Collection<Owner> owners = this.owners.findByLastName("Davis");
-        assertEquals(2, owners.size());
+        Assert.assertEquals(2, owners.size());
 
         owners = this.owners.findByLastName("Daviss");
-        assertTrue(owners.isEmpty());
+        Assert.assertTrue(owners.isEmpty());
     }
 
     @Test
     public void shouldFindSingleOwnerWithPet() {
         Owner owner = this.owners.findById(1);
-        assertTrue(owner.getLastName().startsWith("Franklin"));
-        assertEquals(1, owner.getPets().size());
-        assertNotNull(owner.getPets().get(0).getType());
-        assertEquals("cat", owner.getPets().get(0).getType().getName());
+        Assert.assertTrue(owner.getLastName().startsWith("Franklin"));
+        Assert.assertEquals(1, owner.getPets().size());
+        Assert.assertNotNull(owner.getPets().get(0).getType());
+        Assert.assertEquals("cat", owner.getPets().get(0).getType().getName());
     }
 
     @Test
@@ -85,10 +85,10 @@ public class ClinicServiceTests {
         owner.setCity("Wollongong");
         owner.setTelephone("4444444444");
         this.owners.save(owner);
-        assertNotEquals(0, owner.getId().longValue());
+        Assert.assertNotEquals(0, owner.getId().longValue());
 
         owners = this.owners.findByLastName("Schultz");
-        assertEquals(found + 1, owners.size());
+        Assert.assertEquals(found + 1, owners.size());
     }
 
     @Test
@@ -103,14 +103,14 @@ public class ClinicServiceTests {
 
         // retrieving new name from database
         owner = this.owners.findById(1);
-        assertEquals(newLastName, owner.getLastName());
+        Assert.assertEquals(newLastName, owner.getLastName());
     }
 
     @Test
     public void shouldFindPetWithCorrectId() {
         Pet pet7 = this.pets.findById(7);
-        assertTrue(pet7.getName().startsWith("Samantha"));
-        assertEquals("Jean", pet7.getOwner().getFirstName());
+        Assert.assertTrue(pet7.getName().startsWith("Samantha"));
+        Assert.assertEquals("Jean", pet7.getOwner().getFirstName());
     }
 
     @Test
@@ -118,9 +118,9 @@ public class ClinicServiceTests {
         Collection<PetType> petTypes = this.pets.findPetTypes();
 
         PetType petType1 = EntityUtils.getById(petTypes, PetType.class, 1);
-        assertEquals("cat", petType1.getName());
+        Assert.assertEquals("cat", petType1.getName());
         PetType petType4 = EntityUtils.getById(petTypes, PetType.class, 4);
-        assertEquals("snake", petType4.getName());
+        Assert.assertEquals("snake", petType4.getName());
     }
 
     @Test
@@ -135,15 +135,15 @@ public class ClinicServiceTests {
         pet.setType(EntityUtils.getById(types, PetType.class, 2));
         pet.setBirthDate(new Date());
         owner6.addPet(pet);
-        assertEquals(found + 1, owner6.getPets().size());
+        Assert.assertEquals(found + 1, owner6.getPets().size());
 
         this.pets.save(pet);
         this.owners.save(owner6);
 
         owner6 = this.owners.findById(6);
-        assertEquals(found + 1, owner6.getPets().size());
+        Assert.assertEquals(found + 1, owner6.getPets().size());
         // checks that id has been generated
-        assertNotNull(pet.getId());
+        Assert.assertNotNull(pet.getId());
     }
 
     @Test
@@ -157,7 +157,7 @@ public class ClinicServiceTests {
         this.pets.save(pet7);
 
         pet7 = this.pets.findById(7);
-        assertEquals(newName, pet7.getName());
+        Assert.assertEquals(newName, pet7.getName());
     }
 
     @Test
@@ -165,10 +165,10 @@ public class ClinicServiceTests {
         Collection<Vet> vets = this.vets.findAll();
 
         Vet vet = EntityUtils.getById(vets, Vet.class, 3);
-        assertEquals("Douglas", vet.getLastName());
-        assertEquals(2, vet.getNrOfSpecialties());
-        assertEquals("dentistry", vet.getSpecialties().get(0).getName());
-        assertEquals("surgery", vet.getSpecialties().get(1).getName());
+        Assert.assertEquals("Douglas", vet.getLastName());
+        Assert.assertEquals(2, vet.getNrOfSpecialties());
+        Assert.assertEquals("dentistry", vet.getSpecialties().get(0).getName());
+        Assert.assertEquals("surgery", vet.getSpecialties().get(1).getName());
     }
 
     @Test
@@ -183,17 +183,17 @@ public class ClinicServiceTests {
         this.pets.save(pet7);
 
         pet7 = this.pets.findById(7);
-        assertEquals(found + 1, pet7.getVisits().size());
-        assertNotNull(visit.getId());
+        Assert.assertEquals(found + 1, pet7.getVisits().size());
+        Assert.assertNotNull(visit.getId());
     }
 
     @Test
     public void shouldFindVisitsByPetId() throws Exception {
         Collection<Visit> visits = this.visits.findByPetId(7);
-        assertEquals(2, visits.size());
+        Assert.assertEquals(2, visits.size());
         Visit[] visitArr = visits.toArray(new Visit[visits.size()]);
-        assertNotNull(visitArr[0].getDate());
-        assertEquals(7, visitArr[0].getPetId().longValue());
+        Assert.assertNotNull(visitArr[0].getDate());
+        Assert.assertEquals(7, visitArr[0].getPetId().longValue());
     }
 
 }

@@ -65,12 +65,12 @@ Next, add the Rewrite maven plugin to your pom.xml:
     <artifactId>rewrite-maven-plugin</artifactId>
     <version>1.2.0</version>
     <configuration>
-        <activeProfiles>spring,junit</activeProfiles>
+        <activeProfiles>spring,mockito,junit</activeProfiles>
     </configuration>
 </plugin>
 ```
 
-The maven plugin packs with a default set of recipes that can be activated at will. In this case, we're activating the `spring` profile along with our custom `junit` profile.
+The maven plugin packs with a default set of recipes that can be activated at will. In this case, we're activating the `spring` and `mockito` profiles along with our custom `junit` profile.
 
 ### Running the fixes
 

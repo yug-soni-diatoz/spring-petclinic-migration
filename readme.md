@@ -76,3 +76,9 @@ The maven plugin packs with a default set of recipes that can be activated at wi
 
 Run `./mvnw rewrite:fix` to run the recipes, which will make changes to the source code of the repository. In a real-world scenario, you'd review these changes and perform whatever checks you'd like and then commit them when you are comfortable that they are accurate. The set of recipes that are provided for you by Rewrite are intended to always produce 100% accurate fixes that don't require any manual intervention.
 
+### Run `git diff` to see the changes
+
+The diff shows how, among other changes, Rewrite has removed unnecessary `@Autowired` annotations from injectable constructors (which is now implicit in Spring Boot) and swapped the `@RequestMapping` annotation for `@GetMapping`, closing a [CSRF security vulnerability](https://find-sec-bugs.github.io/bugs.htm#SPRING_ENDPOINT) (!!).
+
+![Git diff showing removal of unnecessary @Autowired and migration of @RequestMapping](https://github.com/openrewrite/spring-petclinic-migration/raw/1.5.x/docs/diff_request_mapping.png)
+

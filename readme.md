@@ -12,7 +12,7 @@ In this example, we'll craft a custom JUnit recipe with a single visitor that wi
 
 ## Instructions
 
-First, clone this repository.
+First, clone this repository. If you'd like to skip ahead to [running the fixes](https://github.com/openrewrite/spring-petclinic-migration#running-the-fixes), checkout the [https://github.com/openrewrite/spring-petclinic-migration/tree/tutorial](tutorial) branch, which is pre-configured and ready to run.
 
 ### Adding a custom JUnit recipe
 

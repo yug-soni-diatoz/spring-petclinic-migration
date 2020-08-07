@@ -63,7 +63,7 @@ Next, add the Rewrite maven plugin to your pom.xml:
 <plugin>
     <groupId>org.openrewrite.maven</groupId>
     <artifactId>rewrite-maven-plugin</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <configuration>
         <activeProfiles>spring,mockito,junit</activeProfiles>
     </configuration>

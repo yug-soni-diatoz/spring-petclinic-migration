@@ -66,6 +66,7 @@ Next, add the Rewrite maven plugin to your pom.xml:
     <version>1.2.1</version>
     <configuration>
         <activeProfiles>spring,mockito,junit</activeProfiles>
+        <configLocation>rewrite.yml</configLocation>
     </configuration>
 </plugin>
 ```

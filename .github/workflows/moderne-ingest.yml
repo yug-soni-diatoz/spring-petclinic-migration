@@ -5,6 +5,8 @@ on:
   workflow_dispatch:
   push:
     branches: [ 1.5.x ]
+  schedule:
+    - cron: "0 18 * * *"
 
 jobs:
   ingest:

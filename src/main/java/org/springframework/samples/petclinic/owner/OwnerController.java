@@ -27,7 +27,8 @@ import javax.validation.Valid;
 import java.util.Collection;
 import java.util.Map;
 
-import static org.springframework.web.bind.annotation.RequestMethod.*;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 /**
  * @author Juergen Hoeller

@@ -4,7 +4,7 @@ name: Moderne ingest
 on:
   workflow_dispatch:
   push:
-    branches: [ 1.5.x ]
+    branches: [ 2.1.x ]
   schedule:
     - cron: "0 18 * * *"
 

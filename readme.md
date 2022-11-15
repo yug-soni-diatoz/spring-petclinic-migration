@@ -1,6 +1,6 @@
 # Spring PetClinic -- Rewrite Technical Debt Remediation Sample
 
-This is an example project that shows how to get started with Rewrite to automatically perform framework migrations and eliminate technical debt! The default branch (1.5.x) contains a slightly messier form of the last modification made to the famous [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) sample in the Spring Boot 1.5.x line. You'll see how to apply Rewrite to tidy up some of this code. As we add additional Rewrite recipes, you'll eventually be able to see this sample app automatically migrated to the latest Spring Boot 2.x version including dependencies!
+This is an example project that shows how to get started with Rewrite to automatically perform framework migrations and eliminate technical debt! The default branch (1.5.x) contains a slightly messier form of the last modification made to the famous [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) sample in the Spring Boot 2.1.x line. You'll see how to apply Rewrite to tidy up some of this code. As we add additional Rewrite recipes, you'll eventually be able to see this sample app automatically migrated to the latest Spring Boot 2.x version including dependencies!
 
 ## What does Rewrite do?
 
